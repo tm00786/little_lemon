@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Lemon Restaurant</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{% static 'img/logo.png' %}" alt="Little Lemon Logo" class="logo">
+            <h1>Little Lemon Restaurant</h1>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h2>Welcome to Little Lemon</h2>
+                <p>Experience the finest Mediterranean cuisine in town!</p>
+            </section>
+            
+            <section class="features">
+                <div class="feature">
+                    <h3>Our Menu</h3>
+                    <p>Explore our delicious menu items through our API at <code>/restaurant/menu/</code></p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Table Booking</h3>
+                    <p>Reserve your table through our booking API at <code>/api/tables/</code></p>
+                </div>
+                
+                <div class="feature">
+                    <h3>API Documentation</h3>
+                    <p>Access our comprehensive API documentation to integrate with our services</p>
+                </div>
+            </section>
+            
+            <section class="api-endpoints">
+                <h2>Available API Endpoints</h2>
+                <ul>
+                    <li><strong>GET/POST</strong> /restaurant/menu/ - List and create menu items</li>
+                    <li><strong>GET/PUT/DELETE</strong> /restaurant/menu/{id}/ - Retrieve, update, delete menu item</li>
+                    <li><strong>GET/POST</strong> /api/tables/ - List and create bookings</li>
+                    <li><strong>GET/PUT/DELETE</strong> /api/tables/{id}/ - Retrieve, update, delete booking</li>
+                    <li><strong>POST</strong> /auth/users/ - User registration</li>
+                    <li><strong>POST</strong> /auth/token/login/ - User login (get token)</li>
+                    <li><strong>POST</strong> /auth/token/logout/ - User logout</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Little Lemon Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Little Lemon Restaurant - Setup Guide
+
+## Quick Setup Steps
+
+1. **Install Dependencies**
+   pip install -r requirements.txt
+
+2. **Configure MySQL Database**
+   - Create database: CREATE DATABASE littlelemon;
+   - Update credentials in littlelemon/settings.py (USER and PASSWORD)
+
+3. **Run Migrations**
+   python manage.py makemigrations
+   python manage.py migrate
+
+4. **Create Superuser**
+   python manage.py createsuperuser
+
+5. **Run Server**
+   python manage.py runserver
+
+6. **Access the Application**
+   - Homepage: http://127.0.0.1:8000/
+   - Admin Panel: http://127.0.0.1:8000/admin/
+
+## Git Setup
+
+To push this code to your GitHub repository:
+
+1. **Install Git** (if not installed)
+   Download from: https://git-scm.com/downloads
+
+2. **Initialize Git Repository**
+   git init
+   git add .
+   git commit -m "Initial commit: Little Lemon Restaurant API"
+
+3. **Connect to GitHub Repository**
+   git remote add origin https://github.com/tm00786/little_lemon.git
+   git branch -M main
+   git push -u origin main
+
+## Testing the API
+
+Use Insomnia or Postman to test the API endpoints listed in Readme.txt

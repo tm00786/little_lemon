@@ -1,0 +1,300 @@
+# Little Lemon Restaurant API - Complete Deployment Guide
+
+## Project Overview
+This Django REST Framework project implements a complete API for Little Lemon restaurant, including:
+- Menu management
+- Table booking system
+- User registration and authentication
+- MySQL database integration
+- Static HTML serving
+- Unit tests
+
+## Prerequisites
+- Python 3.8 or higher
+- MySQL Server 5.7 or higher
+- Git (for version control)
+- pip (Python package manager)
+
+## Step-by-Step Setup
+
+### 1. Install Python Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+Required packages:
+- Django==4.1.5
+- djangorestframework==3.14.0
+- djoser==2.1.0
+- mysqlclient==2.1.1
+
+### 2. MySQL Database Setup
+
+#### Option A: Command Line
+```sql
+mysql -u root -p
+CREATE DATABASE littlelemon;
+CREATE USER 'littlelemon_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON littlelemon.* TO 'littlelemon_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+#### Option B: MySQL Workbench
+1. Open MySQL Workbench
+2. Create new schema named 'littlelemon'
+3. Update credentials in littlelemon/settings.py
+
+### 3. Configure Database Settings
+
+Edit `littlelemon/settings.py`:
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'littlelemon',
+        'USER': 'root',  # Change to your MySQL username
+        'PASSWORD': '',  # Change to your MySQL password
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
+}
+```
+
+### 4. Run Database Migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 5. Create Superuser (Admin Account)
+```bash
+python manage.py createsuperuser
+```
+Follow the prompts to create your admin account.
+
+### 6. Run Development Server
+```bash
+python manage.py runserver
+```
+
+Access the application:
+- Homepage: http://127.0.0.1:8000/
+- Admin Panel: http://127.0.0.1:8000/admin/
+- API Root: http://127.0.0.1:8000/api/
+
+## API Testing Guide
+
+### 1. Register a New User
+**Endpoint:** POST /auth/users/
+**Body:**
+```json
+{
+    "username": "testuser",
+    "password": "testpass123"
+}
+```
+
+### 2. Login and Get Token
+**Endpoint:** POST /auth/token/login/
+**Body:**
+```json
+{
+    "username": "testuser",
+    "password": "testpass123"
+}
+```
+**Response:**
+```json
+{
+    "auth_token": "your_token_here"
+}
+```
+
+### 3. Create Menu Item
+**Endpoint:** POST /restaurant/menu/
+**Headers:**
+```
+Authorization: Token your_token_here
+```
+**Body:**
+```json
+{
+    "title": "Margherita Pizza",
+    "price": "12.99",
+    "inventory": 20
+}
+```
+
+### 4. Get All Menu Items
+**Endpoint:** GET /restaurant/menu/
+**Headers:**
+```
+Authorization: Token your_token_here
+```
+
+### 5. Create Booking
+**Endpoint:** POST /api/tables/
+**Headers:**
+```
+Authorization: Token your_token_here
+```
+**Body:**
+```json
+{
+    "name": "John Doe",
+    "no_of_guests": 4,
+    "booking_date": "2024-12-25T19:00:00Z"
+}
+```
+
+### 6. Get All Bookings
+**Endpoint:** GET /api/tables/
+**Headers:**
+```
+Authorization: Token your_token_here
+```
+
+## Running Unit Tests
+```bash
+python manage.py test
+```
+
+This will run all unit tests for:
+- Menu API
+- Booking API
+- Menu Model
+- Booking Model
+
+## Git and GitHub Setup
+
+### Install Git
+Download and install Git from: https://git-scm.com/downloads
+
+### Push to GitHub Repository
+
+#### Method 1: Using the Batch Script (Windows)
+Simply double-click `push_to_github.bat`
+
+#### Method 2: Manual Commands
+```bash
+# Initialize repository
+git init
+
+# Add all files
+git add .
+
+# Commit changes
+git commit -m "Little Lemon Restaurant API - Initial Commit"
+
+# Add remote repository
+git remote add origin https://github.com/tm00786/little_lemon.git
+
+# Set branch to main
+git branch -M main
+
+# Push to GitHub
+git push -u origin main
+```
+
+You may need to authenticate with GitHub. Use:
+- Username: Your GitHub username
+- Password: Your Personal Access Token (not your account password)
+
+### Creating a Personal Access Token
+1. Go to GitHub → Settings → Developer settings → Personal access tokens
+2. Generate new token (classic)
+3. Select scopes: repo (all)
+4. Copy and save the token
+
+## Project Structure
+```
+littlelemon/
+├── manage.py
+├── requirements.txt
+├── Readme.txt
+├── SETUP.txt
+├── .gitignore
+├── push_to_github.bat
+├── littlelemon/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+│   └── asgi.py
+├── restaurant/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── tests.py
+│   └── static/
+│       ├── css/
+│       │   └── style.css
+│       └── img/
+│           └── logo.png
+└── templates/
+    └── index.html
+```
+
+## Peer Review Checklist
+
+✓ Django serves static HTML content (index.html)
+✓ Project committed to Git repository
+✓ Backend connected to MySQL database
+✓ Menu API implemented (GET, POST, PUT, DELETE)
+✓ Table booking API implemented (GET, POST, PUT, DELETE)
+✓ User registration and authentication set up (Djoser)
+✓ Unit tests included
+✓ Can be tested with Insomnia/Postman REST client
+
+## API Endpoints Summary
+
+### Authentication
+- POST /auth/users/ - Register new user
+- POST /auth/token/login/ - Login (get token)
+- POST /auth/token/logout/ - Logout
+
+### Menu Management
+- GET /restaurant/menu/ - List all menu items
+- POST /restaurant/menu/ - Create menu item
+- GET /restaurant/menu/{id}/ - Get specific menu item
+- PUT /restaurant/menu/{id}/ - Update menu item
+- DELETE /restaurant/menu/{id}/ - Delete menu item
+
+### Booking Management
+- GET /api/tables/ - List all bookings
+- POST /api/tables/ - Create booking
+- GET /api/tables/{id}/ - Get specific booking
+- PUT /api/tables/{id}/ - Update booking
+- DELETE /api/tables/{id}/ - Delete booking
+
+## Troubleshooting
+
+### MySQL Connection Error
+- Ensure MySQL server is running
+- Verify database credentials in settings.py
+- Install mysqlclient: `pip install mysqlclient`
+
+### Import Errors
+- Activate virtual environment
+- Install requirements: `pip install -r requirements.txt`
+
+### Migration Errors
+- Delete migrations folder (except __init__.py)
+- Run: `python manage.py makemigrations`
+- Run: `python manage.py migrate`
+
+### Git Push Errors
+- Ensure repository exists on GitHub
+- Use Personal Access Token instead of password
+- Check repository URL is correct
+
+## Support
+For issues or questions, refer to:
+- Django Documentation: https://docs.djangoproject.com/
+- Django REST Framework: https://www.django-rest-framework.org/
+- Djoser Documentation: https://djoser.readthedocs.io/

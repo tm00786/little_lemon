@@ -1,0 +1,131 @@
+====================================
+LITTLE LEMON - QUICK START GUIDE
+====================================
+
+📁 PROJECT LOCATION
+c:\Users\M4 Tech\Downloads\Github
+
+====================================
+⚡ QUICK SETUP (5 STEPS)
+====================================
+
+1️⃣ INSTALL DEPENDENCIES
+   > pip install -r requirements.txt
+
+2️⃣ SETUP DATABASE
+   - Create MySQL database: littlelemon
+   - Update credentials in: littlelemon/settings.py
+
+3️⃣ RUN MIGRATIONS
+   > python manage.py makemigrations
+   > python manage.py migrate
+
+4️⃣ CREATE ADMIN
+   > python manage.py createsuperuser
+
+5️⃣ START SERVER
+   > python manage.py runserver
+
+====================================
+🌐 ACCESS APPLICATION
+====================================
+
+Homepage:    http://127.0.0.1:8000/
+Admin Panel: http://127.0.0.1:8000/admin/
+API Root:    http://127.0.0.1:8000/api/
+
+====================================
+🚀 PUSH TO GITHUB
+====================================
+
+EASY WAY:
+Double-click: push_to_github.bat
+
+MANUAL WAY:
+> git init
+> git add .
+> git commit -m "Initial commit"
+> git remote add origin https://github.com/tm00786/little_lemon.git
+> git branch -M main
+> git push -u origin main
+
+⚠️ Use Personal Access Token, not password!
+
+====================================
+🧪 TEST API
+====================================
+
+1. Register User
+   POST /auth/users/
+   {"username": "test", "password": "pass123"}
+
+2. Login
+   POST /auth/token/login/
+   {"username": "test", "password": "pass123"}
+
+3. Use Token
+   Header: Authorization: Token {your_token}
+
+4. Test Endpoints
+   GET  /restaurant/menu/
+   POST /api/tables/
+
+====================================
+📋 API ENDPOINTS FOR PEER REVIEW
+====================================
+
+/auth/users/
+/auth/token/login/
+/restaurant/menu/
+/api/tables/
+
+====================================
+🧪 RUN TESTS
+====================================
+
+> python manage.py test
+
+====================================
+📚 DOCUMENTATION FILES
+====================================
+
+QUICK_START.txt         ← You are here!
+HOW_TO_PUSH_TO_GITHUB.txt - Detailed Git instructions
+DEPLOYMENT_GUIDE.txt      - Complete deployment guide
+PROJECT_SUMMARY.txt       - Project overview
+Readme.txt               - Main README for GitHub
+SETUP.txt                - Setup instructions
+
+====================================
+✅ PEER REVIEW CHECKLIST
+====================================
+
+✓ Django serves static HTML
+✓ Git repository ready
+✓ MySQL database connected
+✓ Menu API implemented
+✓ Booking API implemented
+✓ User registration/auth
+✓ Unit tests included
+✓ Insomnia/Postman testable
+
+====================================
+⚠️ IMPORTANT NOTES
+====================================
+
+• Install Git before pushing to GitHub
+• Use MySQL username/password in settings.py
+• Personal Access Token needed for GitHub push
+• Run migrations before starting server
+• All files are ready - just follow steps!
+
+====================================
+🆘 NEED HELP?
+====================================
+
+Check these files:
+1. HOW_TO_PUSH_TO_GITHUB.txt - Git/GitHub help
+2. DEPLOYMENT_GUIDE.txt - Troubleshooting
+3. PROJECT_SUMMARY.txt - Project overview
+
+====================================

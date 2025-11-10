@@ -1,0 +1,241 @@
+===============================================
+HOW TO PUSH THIS PROJECT TO GITHUB
+===============================================
+
+IMPORTANT: Read this file completely before starting!
+
+===============================================
+PREREQUISITES
+===============================================
+
+1. GitHub Account
+   - You need a GitHub account
+   - Account: tm00786 (based on your repository URL)
+
+2. GitHub Repository
+   - Repository must exist: https://github.com/tm00786/little_lemon
+   - If it doesn't exist, create it:
+     a) Go to https://github.com
+     b) Click "+" icon → "New repository"
+     c) Name: little_lemon
+     d) Make it Public or Private
+     e) DO NOT initialize with README (we already have one)
+     f) Click "Create repository"
+
+3. Git Installation
+   - Download: https://git-scm.com/downloads
+   - Install with default settings
+   - After installation, RESTART your computer or terminal
+
+===============================================
+METHOD 1: AUTOMATIC (EASIEST - WINDOWS)
+===============================================
+
+1. INSTALL GIT (if not already installed)
+   - Download from: https://git-scm.com/downloads
+   - Run the installer
+   - Use default settings
+   - RESTART your terminal after installation
+
+2. DOUBLE-CLICK THE BATCH FILE
+   - File: push_to_github.bat
+   - Location: c:\Users\M4 Tech\Downloads\Github\
+   - The script will automatically:
+     ✓ Initialize Git repository
+     ✓ Add all files
+     ✓ Commit changes
+     ✓ Add remote repository
+     ✓ Push to GitHub
+
+3. ENTER YOUR CREDENTIALS WHEN PROMPTED
+   - Username: tm00786 (your GitHub username)
+   - Password: Use your Personal Access Token (NOT your password!)
+
+===============================================
+METHOD 2: MANUAL (COMMAND LINE)
+===============================================
+
+1. OPEN COMMAND PROMPT
+   - Press Windows Key + R
+   - Type: cmd
+   - Press Enter
+
+2. NAVIGATE TO PROJECT FOLDER
+   cd "c:\Users\M4 Tech\Downloads\Github"
+
+3. VERIFY GIT IS INSTALLED
+   git --version
+   
+   If you see an error, install Git first!
+
+4. INITIALIZE GIT REPOSITORY
+   git init
+
+5. CONFIGURE GIT (First time only)
+   git config --global user.name "Your Name"
+   git config --global user.email "your.email@example.com"
+
+6. ADD ALL FILES
+   git add .
+
+7. COMMIT CHANGES
+   git commit -m "Little Lemon Restaurant API - Initial Commit"
+
+8. ADD REMOTE REPOSITORY
+   git remote add origin https://github.com/tm00786/little_lemon.git
+
+9. SET BRANCH TO MAIN
+   git branch -M main
+
+10. PUSH TO GITHUB
+    git push -u origin main
+
+11. ENTER CREDENTIALS WHEN PROMPTED
+    - Username: tm00786
+    - Password: Your Personal Access Token
+
+===============================================
+CREATING A PERSONAL ACCESS TOKEN
+===============================================
+
+GitHub no longer accepts passwords for Git operations.
+You MUST use a Personal Access Token:
+
+1. Go to GitHub.com and login
+2. Click your profile picture (top-right)
+3. Click "Settings"
+4. Scroll down and click "Developer settings" (bottom-left)
+5. Click "Personal access tokens" → "Tokens (classic)"
+6. Click "Generate new token" → "Generate new token (classic)"
+7. Give it a name: "Little Lemon Project"
+8. Set Expiration: 90 days (or as needed)
+9. Select Scopes:
+   ✓ Check "repo" (all sub-items will be checked automatically)
+10. Click "Generate token" (bottom of page)
+11. COPY THE TOKEN IMMEDIATELY (you won't see it again!)
+12. Save it somewhere safe (Notepad, password manager)
+
+USE THIS TOKEN AS YOUR PASSWORD when pushing to GitHub!
+
+===============================================
+TROUBLESHOOTING
+===============================================
+
+ERROR: "git is not recognized"
+SOLUTION: 
+- Git is not installed or not in PATH
+- Install Git: https://git-scm.com/downloads
+- Restart your terminal/command prompt
+- Try again
+
+ERROR: "Permission denied"
+SOLUTION:
+- Using wrong credentials
+- Use Personal Access Token, not your GitHub password
+- Create token as described above
+
+ERROR: "Repository not found"
+SOLUTION:
+- Repository doesn't exist on GitHub
+- Create it: https://github.com/new
+- Name it exactly: little_lemon
+- DO NOT initialize with README
+- Try pushing again
+
+ERROR: "Failed to push some refs"
+SOLUTION:
+- Remote repository might have files
+- Option 1: git pull origin main --allow-unrelated-histories
+- Then: git push -u origin main
+- Option 2: Delete repository on GitHub and recreate empty
+- Then: git push -u origin main
+
+ERROR: "Authentication failed"
+SOLUTION:
+- Wrong username or token
+- Create a new Personal Access Token
+- Use token as password
+- Username must be: tm00786
+
+===============================================
+VERIFICATION
+===============================================
+
+After successful push:
+
+1. Visit: https://github.com/tm00786/little_lemon
+2. You should see all your project files
+3. Readme.txt should be displayed on the main page
+4. Files should include:
+   - manage.py
+   - requirements.txt
+   - littlelemon/ folder
+   - restaurant/ folder
+   - templates/ folder
+   - All documentation files
+
+===============================================
+MAKING UPDATES LATER
+===============================================
+
+If you make changes to the code and want to push again:
+
+1. git add .
+2. git commit -m "Description of changes"
+3. git push
+
+You won't need to configure the remote repository again.
+
+===============================================
+GETTING HELP
+===============================================
+
+If you encounter issues:
+
+1. Check the error message carefully
+2. Look for the issue in TROUBLESHOOTING section above
+3. Verify:
+   - Git is installed (git --version)
+   - Repository exists on GitHub
+   - You have correct credentials
+   - You're in the right folder
+
+4. Common Git commands:
+   git status          - Check current status
+   git log             - View commit history
+   git remote -v       - Check remote repository
+   git branch          - Check current branch
+
+===============================================
+IMPORTANT REMINDERS
+===============================================
+
+✓ Use Personal Access Token, NOT password
+✓ Repository name must match: little_lemon
+✓ Username must be: tm00786
+✓ Restart terminal after installing Git
+✓ Save your Personal Access Token safely
+✓ Don't share your token with anyone
+
+===============================================
+SUMMARY OF STEPS
+===============================================
+
+1. Install Git (if needed)
+2. Create GitHub repository (if needed)
+3. Create Personal Access Token
+4. Run push_to_github.bat OR use manual commands
+5. Enter username and token when prompted
+6. Verify files on GitHub
+7. Submit repository URL for peer review
+
+===============================================
+REPOSITORY URL FOR SUBMISSION
+===============================================
+
+After successful push, submit this URL:
+https://github.com/tm00786/little_lemon
+
+===============================================
+GOOD LUCK!
+===============================================
