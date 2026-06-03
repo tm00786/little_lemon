@@ -11,6 +11,21 @@ def index(request):
     return render(request, 'index.html', {})
 
 
+def menu_page(request):
+    """Render the menu page"""
+    return render(request, 'menu.html', {})
+
+
+def booking_page(request):
+    """Render the booking page"""
+    return render(request, 'booking.html', {})
+
+
+def login_page(request):
+    """Render the login page"""
+    return render(request, 'login.html', {})
+
+
 class MenuItemsView(generics.ListCreateAPIView):
     """API view for listing and creating menu items"""
     queryset = Menu.objects.all()

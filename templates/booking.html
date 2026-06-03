@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - Little Lemon Restaurant</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🍋 Little Lemon Restaurant</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/menu">Menu</a>
+                <a href="/booking" class="active">Book Table</a>
+                <a href="#" id="loginBtn">Login</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="booking-container">
+                <h2>Reserve Your Table</h2>
+                
+                <div id="authMessage" class="message hidden"></div>
+                
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" name="guests" min="1" max="20" required placeholder="Number of guests">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Book Table</button>
+                </form>
+                
+                <div class="bookings-section">
+                    <h3>Your Bookings</h3>
+                    <div id="bookingsList" class="bookings-list">
+                        <div class="loading">Loading bookings...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Little Lemon Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/booking.js' %}"></script>
+</body>
+</html>

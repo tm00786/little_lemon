@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Little Lemon Restaurant</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🍋 Little Lemon Restaurant</h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/menu" class="active">Menu</a>
+                <a href="/booking">Book Table</a>
+                <a href="#" id="loginBtn">Login</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h2>Our Menu</h2>
+            
+            <div id="authMessage" class="message hidden"></div>
+            
+            <div id="menuItems" class="menu-grid">
+                <div class="loading">Loading menu...</div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Little Lemon Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/menu.js' %}"></script>
+</body>
+</html>
